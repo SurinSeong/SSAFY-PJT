@@ -1,6 +1,8 @@
 import os
 import pprint
 import requests
+
+from collections import defaultdict
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -18,12 +20,23 @@ load_dotenv()
 # 6. 5번에서 만든 딕셔너리를 결과 리스트에 추가합니다.
 
 
-def setting_info(top_dict, sub_dict):
+def setting_baseInfo(base_dict):
     base_eng_to_kor = {
         'kor_co_nm':'금융회사명',
         'fin_prdt_nm':'금융상품명',
+        'fin_prdt_cd':'금융상품코드'
     }
+    
+    new_dict = dict()
+    
+    for base_key, base_value in base_dict.items():
+        if base_key in base_eng_to_kor:
+            new_dict[base_eng_to_kor[base_key]] = base_value
+     
+    return new_dict
 
+
+def setting_optionInfo(option_dict):
     option_eng_to_kor = {
         'fin_prdt_cd':'금융상품코드',
         'intr_rate':'저축 금리',
@@ -32,12 +45,26 @@ def setting_info(top_dict, sub_dict):
         'intr_rate_type_nm':'저축 금리 유형명',
         'intr_rate2':'최고 우대금리'
     }
+    
+    new_dict = dict()
+    
+    for option_key, option_value in option_dict.items():
+        if option_key in option_eng_to_kor:
+            new_dict[option_eng_to_kor[option_key]] = option_value
+    
+    return new_dict
 
-    fin_prdt_nm = ''
-    for top in top_dict:
-        if top['fin_prdt_cd'] == fin_prdt_nm:
 
-    pass
+def find_same_value(info, key):
+    grouped = defaultdict(list)
+    
+    for d in info:
+        # '금융상품코드'를 제거한 새로운 딕셔너리 생성
+        d_copy = d.copy()  # 원본 딕셔너리를 수정하지 않도록 복사
+        d_copy.pop(key, None)
+        grouped[d[key]].append(d_copy)
+    
+    return dict(grouped)
 
 
 def get_deposit_products():
@@ -52,24 +79,39 @@ def get_deposit_products():
     result = requests.get(url=url, params=params).json()
 
     key_result = result['result']
+    # pprint.pprint(key_result)
 
+    # baseInfo
     base_data = key_result['baseList']
-    option_data = key_result['optionList']
-
     
-
-    result_list = []
-
-    for target in target_data:
-        new_dict = dict()
-
-        for key, value in target.items():
-            if key in eng_to_kor:
-                new_dict[eng_to_kor[key]] = value
+    for i, data in enumerate(base_data):
+        base_data[i] = setting_baseInfo(data)
+    
+    # optionInfo
+    option_data = key_result['optionList']
+    
+    for i, data in enumerate(option_data):
+        option_data[i] = setting_optionInfo(data)
+    
+    # 금융 상품 코드가 같은 것 끼리 묶기    
+    new_option_data = find_same_value(option_data, '금융상품코드')
+    
+    new_list = []
+    
+    for data in base_data:
+        new_dict = {}
         
-        result_list.append(new_dict)
+        for key, value in data.items():
+            if value in new_option_data:
+                # 필요한 데이터 추가
+                new_dict['금리정보'] = new_option_data[value]
+                
+            if '금융상품코드' != key:
+                new_dict[key] = value
+                
+        new_list.append(new_dict)
 
-    return result_list
+    return new_list
   
 
 if __name__ == '__main__':
