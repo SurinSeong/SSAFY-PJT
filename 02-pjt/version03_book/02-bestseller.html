@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ThRead - Bestseller</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      /* 폰트 정의 */
+      @font-face {
+        font-family: 'SBAggro_L';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'GmarketSansTTFMedium';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        color: #333;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'GmarketSansTTFMedium';
+      }
+
+      .section-title {
+        margin-right: 20px;
+        white-space: nowrap;
+      }
+
+      .carousel-inner {
+        display: flex;
+        flex-direction: column;
+        
+      }
+      .carousel-item {
+        display: flex;
+        justify-content: space-between;  
+      }
+
+      .book-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .book img {
+        width: 150px;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .carousel-control-next {
+        background-color: red;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin-top: -50px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- 베스트셀러 섹션 -->
+    <section class="bestseller py-5">
+      <div class="container bestseller-container">
+        <h3 class="section-title">베스트셀러</h3>
+        <!-- 
+          [과제 안내]
+          아래 영역에 Bootstrap Carousel 컴포넌트를 이용해
+          - 총 12권의 도서를 4권씩 나눈 슬라이드를 구현하고,
+          - 각 도서는 도서 커버 이미지와 제목으로 구성하며,
+          - 우측에만 표시되는 Next 컨트롤 버튼을 포함하도록 작성하세요.
+        -->
+        <!-- 코드는 여기에 작성하시오 -->
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="book-list">
+                <div class="book">
+                  <img src="./assets/bestsellers/img1.jpeg" class="d-block" alt="image1">
+                  <p class="book-title">도서 제목 1</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img2.jpeg" class="d-block" alt="image2">
+                  <p class="book-title">도서 제목 2</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img3.jpeg" class="d-block" alt="image3">
+                  <p class="book-title">도서 제목 3</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img4.jpeg" class="d-block" alt="image4">
+                  <p class="book-title">도서 제목 4</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="book-list">
+                <div class="book">
+                  <img src="./assets/bestsellers/img5.jpeg" class="d-block" alt="image5">
+                  <p class="book-title">도서 제목 5</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img6.jpeg" class="d-block" alt="image6">
+                  <p class="book-title">도서 제목 6</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img7.jpeg" class="d-block" alt="image7">
+                  <p class="book-title">도서 제목 7</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img8.jpeg" class="d-block" alt="image8">
+                  <p class="book-title">도서 제목 8</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="book-list">
+                <div class="book">
+                  <img src="./assets/bestsellers/img9.jpeg" class="d-block" alt="image9">
+                  <p class="book-title">도서 제목 9</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img10.jpeg" class="d-block" alt="image10">
+                  <p class="book-title">도서 제목 10</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img11.jpeg" class="d-block" alt="image11">
+                  <p class="book-title">도서 제목 11</p>
+                </div>
+                <div class="book">
+                  <img src="./assets/bestsellers/img12.jpeg" class="d-block" alt="image12">
+                  <p class="book-title">도서 제목 12</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
