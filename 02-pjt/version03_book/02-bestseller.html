@@ -34,44 +34,27 @@
       }
 
       .container {
-        display: flex;
-        justify-content: space-between;
         font-family: 'GmarketSansTTFMedium';
+        border: #333;
       }
 
-      .section-title {
-        margin-right: 20px;
-        white-space: nowrap;
+      .book-info {
+        text-align: center;
+        flex: 1 1 calc(25% - 20px);
       }
 
-      .carousel-inner {
-        display: flex;
-        flex-direction: column;
-        
-      }
-      .carousel-item {
-        display: flex;
-        justify-content: space-between;  
-      }
-
-      .book-list {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      .book img {
+      .book-image {
         width: 150px;
         height: 220px;
-        object-fit: cover;
       }
 
       .carousel-control-next {
-        background-color: red;
-        border-radius: 50%;
         width: 50px;
         height: 50px;
-        margin-top: -50px;
+        background-color: rgba(255, 0, 0, 0.2);
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
       }
 
     </style>
@@ -79,8 +62,8 @@
   <body>
     <!-- 베스트셀러 섹션 -->
     <section class="bestseller py-5">
-      <div class="container bestseller-container">
-        <h3 class="section-title">베스트셀러</h3>
+      <div class="container bestseller-container d-flex justify-content-between align-items-center">
+        <h3 class="section-title d-block">베스트셀러</h3>
         <!-- 
           [과제 안내]
           아래 영역에 Bootstrap Carousel 컴포넌트를 이용해
@@ -91,73 +74,75 @@
         <!-- 코드는 여기에 작성하시오 -->
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
+            <!-- 도서 정보 4개 묶음 -->
             <div class="carousel-item active">
-              <div class="book-list">
-                <div class="book">
-                  <img src="./assets/bestsellers/img1.jpeg" class="d-block" alt="image1">
-                  <p class="book-title">도서 제목 1</p>
+              <div class="d-flex justify-content-center align-items-stretch gap-4">
+                <!-- 도서 하나의 정보 -->
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img1.jpeg" class="book-image" alt="img1">
+                  <p class="book-title">책 이름</p>
                 </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img2.jpeg" class="d-block" alt="image2">
-                  <p class="book-title">도서 제목 2</p>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img2.jpeg" class="book-image" alt="img2">
+                  <p class="book-title">책 이름</p>
                 </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img3.jpeg" class="d-block" alt="image3">
-                  <p class="book-title">도서 제목 3</p>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img3.jpeg" class="book-image" alt="img3">
+                  <p class="book-title">책 이름</p>
                 </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img4.jpeg" class="d-block" alt="image4">
-                  <p class="book-title">도서 제목 4</p>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="book-list">
-                <div class="book">
-                  <img src="./assets/bestsellers/img5.jpeg" class="d-block" alt="image5">
-                  <p class="book-title">도서 제목 5</p>
-                </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img6.jpeg" class="d-block" alt="image6">
-                  <p class="book-title">도서 제목 6</p>
-                </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img7.jpeg" class="d-block" alt="image7">
-                  <p class="book-title">도서 제목 7</p>
-                </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img8.jpeg" class="d-block" alt="image8">
-                  <p class="book-title">도서 제목 8</p>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img4.jpeg" class="book-image" alt="img4">
+                  <p class="book-title">책 이름</p>
                 </div>
               </div>
             </div>
             <div class="carousel-item">
-              <div class="book-list">
-                <div class="book">
-                  <img src="./assets/bestsellers/img9.jpeg" class="d-block" alt="image9">
-                  <p class="book-title">도서 제목 9</p>
+              <div class="d-flex justify-content-center align-items-stretch gap-4">
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img5.jpeg" class="book-image" alt="img5">
+                  <p class="book-title">책 이름</p>
                 </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img10.jpeg" class="d-block" alt="image10">
-                  <p class="book-title">도서 제목 10</p>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img6.jpeg" class="book-image" alt="img6">
+                  <p class="book-title">책 이름</p>
                 </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img11.jpeg" class="d-block" alt="image11">
-                  <p class="book-title">도서 제목 11</p>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img7.jpeg" class="book-image" alt="img7">
+                  <p class="book-title">책 이름</p>
                 </div>
-                <div class="book">
-                  <img src="./assets/bestsellers/img12.jpeg" class="d-block" alt="image12">
-                  <p class="book-title">도서 제목 12</p>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img8.jpeg" class="book-image" alt="img8">
+                  <p class="book-title">책 이름</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="d-flex justify-content-center align-items-stretch gap-4">
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img9.jpeg" class="book-image" alt="img9">
+                  <p class="book-title">책 이름</p>
+                </div>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img10.jpeg" class="book-image" alt="img10">
+                  <p class="book-title">책 이름</p>
+                </div>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img11.jpeg" class="book-image" alt="img11">
+                  <p class="book-title">책 이름</p>
+                </div>
+                <div class="book-info">
+                  <img src="./assets/bestsellers/img12.jpeg" class="book-image" alt="img12">
+                  <p class="book-title">책 이름</p>
                 </div>
               </div>
             </div>
           </div>
-
+          <!-- 오른쪽 버튼 -->
           <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon"></span>
           </button>
         </div>
+
       </div>
     </section>
 
