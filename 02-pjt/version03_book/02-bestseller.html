@@ -38,14 +38,32 @@
         border: #333;
       }
 
+      .carousel-inner {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .carousel-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        transition: transform 0.5s ease-in-out;
+      }
+
       .book-info {
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
         flex: 1 1 calc(25% - 20px);
       }
 
       .book-image {
         width: 150px;
         height: 220px;
+        object-fit: cover;
       }
 
       .carousel-control-next {
@@ -76,7 +94,7 @@
           <div class="carousel-inner">
             <!-- 도서 정보 4개 묶음 -->
             <div class="carousel-item active">
-              <div class="d-flex justify-content-center align-items-stretch gap-4">
+              <div class="d-flex justify-content-center align-items-center">
                 <!-- 도서 하나의 정보 -->
                 <div class="book-info">
                   <img src="./assets/bestsellers/img1.jpeg" class="book-image" alt="img1">
@@ -97,7 +115,7 @@
               </div>
             </div>
             <div class="carousel-item">
-              <div class="d-flex justify-content-center align-items-stretch gap-4">
+              <div class="d-flex justify-content-center align-items-center">
                 <div class="book-info">
                   <img src="./assets/bestsellers/img5.jpeg" class="book-image" alt="img5">
                   <p class="book-title">책 이름</p>
@@ -117,7 +135,7 @@
               </div>
             </div>
             <div class="carousel-item">
-              <div class="d-flex justify-content-center align-items-stretch gap-4">
+              <div class="d-flex justify-content-center align-items-center">
                 <div class="book-info">
                   <img src="./assets/bestsellers/img9.jpeg" class="book-image" alt="img9">
                   <p class="book-title">책 이름</p>
@@ -142,7 +160,6 @@
             <span class="carousel-control-next-icon"></span>
           </button>
         </div>
-
       </div>
     </section>
 
